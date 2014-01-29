@@ -19,8 +19,8 @@ function uploadGif(pngurl) {
 
 function shareFormula() {
     var pngUrl = _renderer.domElement.toDataURL();
-    //var image = document.getElementById('SnapPng');
-    //image.src = pngUrl;
+    var image = document.getElementById('SnapPng');
+    image.src = pngUrl;
     var pngukey = uploadGif(pngUrl);
 
     var tempName = parseInt((new Date()).getTime() / 1000);

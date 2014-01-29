@@ -41,7 +41,7 @@
 	</head>
 	<body>
         <div id="modalBackground"></div>
-        <div id='ShareDiv' style='z-index: 100; background-color: white; border: 1px; border-style: solid; border-color: black; display: block;'>
+        <div id='ShareDiv' style='z-index: 100; background-color: white; border: 1px; border-style: solid; border-color: black; display: none;'>
         <table >
         <tr><th colspan='2' align="left" style="font-family: calibri;">Share your formula:</th><th align=right><button id='doneSharingButton' class='styled-button-blue' onclick='doneSharing()'>Done</button></th></tr>
         <tr><td colspan='3'>
