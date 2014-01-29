@@ -15,8 +15,11 @@ namespace Formula3DApp
             int PNGUKey =  ukeyString == null ? -1 : int.Parse(ukeyString);
 
             String formulaString = Request.QueryString["formula"];
-            if (formulaString != null)
-                Page.MetaDescription = Server.UrlDecode(formulaString);
+            String systemString = Request.QueryString["system"];
+            String descString = "";
+            if (formulaString != null) descString = Server.UrlDecode(formulaString);
+            if (systemString != null) descString += "\n(" +Server.UrlDecode(systemString) + " Coordinate System)";
+            Page.MetaDescription = descString;
 
             if (PNGUKey > -1)
                 SnapPng.ImageUrl = "http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + PNGUKey + ".png";
