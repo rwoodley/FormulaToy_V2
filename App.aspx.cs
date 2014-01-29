@@ -15,7 +15,7 @@ namespace Formula3DApp
             int PNGUKey =  ukeyString == null ? -1 : int.Parse(ukeyString);
 
             String formulaString = Request.QueryString["formula"];
-            if (formulaString == null)
+            if (formulaString != null)
                 Page.MetaDescription = Server.UrlDecode(formulaString);
 
             if (PNGUKey > -1)
