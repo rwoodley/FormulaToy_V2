@@ -31,6 +31,7 @@ function shareFormula() {
     document.getElementById("shareEmail").href = "mailto:?subject=" + cleanFormula + "&body=" + encodeURIComponent(url); // double-encoding seems to be required here.
     document.getElementById("shareTW").href = 'http://twitter.com/share?text=' + cleanFormula + '&url=' + encodeURIComponent(url);
     document.getElementById("shareFB").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    document.getElementById("sharePU").href = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(url);
     document.getElementById('modalBackground').style.display = 'block';
     var el = document.getElementById('ShareDiv');
 
