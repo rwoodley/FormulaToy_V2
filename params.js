@@ -27,13 +27,14 @@ function shareFormula() {
     var root = location.protocol + '//' + location.host + location.pathname;
     var url = root + _params.toURL(pngukey) + "&" + tempName;
     var cleanFormula = "Surface graph for " + encodeURIComponent("'" + _params.formula + "'\n");
+    var pinterestDescription = encodeURIComponent("Surface graph for '" + _params.formula + "'\n");
     document.getElementById('MatrixURL').value = url;
     document.getElementById("shareEmail").href = "mailto:?subject=" + cleanFormula + "&body=" + encodeURIComponent(url); // double-encoding seems to be required here.
     document.getElementById("shareTW").href = 'http://twitter.com/share?text=' + cleanFormula + '&url=' + encodeURIComponent(url);
     document.getElementById("shareFB").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
     document.getElementById("sharePI").href = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(url)
         + "&media=" + encodeURIComponent("http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + pngukey + ".png")
-        + "&description=" + encodeURIComponent(cleanFormula)
+        + "&description=" + pinterestDescription
         ;
     document.getElementById('modalBackground').style.display = 'block';
     var el = document.getElementById('ShareDiv');
