@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25B61AF2-3F9F-4276-9BA0-B2112B3153D4}"
+	ProjectSection(SolutionItems) = preProject
+		Detector.js = Detector.js
+		FormulaToy.html = FormulaToy.html
+		FormulaValidation.js = FormulaValidation.js
+		guiStuff.js = guiStuff.js
+		Help.html = Help.html
+		Main.js = Main.js
+		params.js = params.js
+		ToDo.txt = ToDo.txt
+		utilities.js = utilities.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{E390918D-D5FB-4042-8F72-2B9209A3A78D}"
+	ProjectSection(SolutionItems) = preProject
+		lib\analytics.js = lib\analytics.js
+		lib\dat.gui.min.js = lib\dat.gui.min.js
+		lib\OrbitControls.js = lib\OrbitControls.js
+		lib\stats.js = lib\stats.js
+		lib\three.js = lib\three.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{938389AF-1763-4EA1-B665-EF673B20FB8D}"
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E390918D-D5FB-4042-8F72-2B9209A3A78D} = {25B61AF2-3F9F-4276-9BA0-B2112B3153D4}
+		{938389AF-1763-4EA1-B665-EF673B20FB8D} = {25B61AF2-3F9F-4276-9BA0-B2112B3153D4}
+	EndGlobalSection
+EndGlobal
