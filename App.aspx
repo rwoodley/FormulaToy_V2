@@ -50,8 +50,8 @@
         <tr><td colspan='3'>URL: <input id='MatrixURL' style='font-size: 10px; width: 300px;' /></td></tr>
         <tr>
         <td><a id="shareEmail" href="blah"><img id="MailPng" width=100px; src="images/mail2.png" /></a></td>
-        <td><a id="shareFB" href="blah"><img id="FBPng" width=100px; src="images/FacebookFlatLarge.png" /></a></td>
-        <td><a id="shareTW" href="blah"><img id="TwitterPng" width=100px; src="images/TwitterFlatLarge.png" ></a></td>
+        <td><a id="shareFB" href="blah" target="_blank" ><img id="FBPng" width=100px; src="images/FacebookFlatLarge.png" /></a></td>
+        <td><a id="shareTW" href="blah" target="_blank" ><img id="TwitterPng" width=100px; src="images/TwitterFlatLarge.png" ></a></td>
         </tr>
         </table>
         </div>
