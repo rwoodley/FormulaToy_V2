@@ -25,6 +25,7 @@
     ga('create', 'UA-41066114-1', 'rwoodley.org');
     ga('send', 'pageview');
 </script>
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
         <script src="lib/three.js"></script>
         <script src="lib/OrbitControls.js"></script>
         <script src="lib/stats.js"></script>
@@ -47,11 +48,13 @@
         <tr><td colspan='3'>
             <asp:Image ID="SnapPng" runat="server" width="200" height="100"/>
             </td>
-        <tr><td colspan='3'>URL: <input id='MatrixURL' style='font-size: 10px; width: 300px;' /></td></tr>
+        <tr><td colspan='4'>URL: <input id='MatrixURL' style='font-size: 10px; width: 300px;' /></td></tr>
         <tr>
         <td><a id="shareEmail" href="blah"><img id="MailPng" width=100px; src="images/mail2.png" /></a></td>
         <td><a id="shareFB" href="blah" target="_blank" ><img id="FBPng" width=100px; src="images/FacebookFlatLarge.png" /></a></td>
         <td><a id="shareTW" href="blah" target="_blank" ><img id="TwitterPng" width=100px; src="images/TwitterFlatLarge.png" ></a></td>
+        <td><a id="sharePI" href="blah" target="_blank" data-pin-do="buttonBookmark">
+            <img id="PIPNG" width=100px; src="images/Pinterest.jpg" ></a></td>
         </tr>
         </table>
         </div>
