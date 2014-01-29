@@ -18,7 +18,7 @@ namespace Formula3DApp
             String systemString = Request.QueryString["system"];
             String descString = "";
             if (formulaString != null) descString = Server.UrlDecode(formulaString);
-            if (systemString != null) descString += "\n(" +Server.UrlDecode(systemString) + " Coordinate System)";
+            if (systemString != null) descString += " (using " +Server.UrlDecode(systemString) + " coordinates.)";
             Page.MetaDescription = descString;
 
             if (PNGUKey > -1)
