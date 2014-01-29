@@ -58,12 +58,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.aspx" />
+    <Content Include="favicon.ico" />
     <Content Include="FormulaToy.html" />
     <Content Include="FormulaValidation.js" />
     <Content Include="guiStuff.js" />
     <Content Include="Help.html" />
     <Content Include="images\FacebookFlatLarge.png" />
-    <Content Include="images\favicon.ico" />
     <Content Include="images\Icon.png" />
     <Content Include="images\loading.gif" />
     <Content Include="images\mail2.png" />

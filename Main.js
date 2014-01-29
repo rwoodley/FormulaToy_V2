@@ -25,10 +25,10 @@ function init() {
     _params = new params();
     _params.initFromURL();
     //alert(_params.PNGUKey);
-    if (_params.PNGUKey > -1) {
-        var image = document.getElementById('SnapPng');
-        image.src = "http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + _params.PNGUKey + ".png";
-    }
+    //if (_params.PNGUKey > -1) {
+    //    var image = document.getElementById('SnapPng');
+    //    image.src = "http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + _params.PNGUKey + ".png";
+    //}
 
     //_renderer = new THREE.WebGLRenderer();
     _renderer = new THREE.WebGLRenderer({ preserveDrawingBuffer: true });
