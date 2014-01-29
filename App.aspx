@@ -1,6 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="App.aspx.cs" Inherits="Formula3DApp.App" %>
 <!DOCTYPE html>
-<html lang="en"><head>
+<html lang="en"><head runat="server">
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<title>Formula Toy</title>
 		<meta charset="utf-8">
