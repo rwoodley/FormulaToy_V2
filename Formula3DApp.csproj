@@ -60,7 +60,6 @@
     <Content Include="App.aspx" />
     <Content Include="Detector.js" />
     <Content Include="favicon.ico" />
-    <Content Include="FormulaToy.html" />
     <Content Include="FormulaValidation.js" />
     <Content Include="guiStuff.js" />
     <Content Include="Help.html" />
