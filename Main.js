@@ -102,10 +102,7 @@ function doPlot() {
         var y = v * 2 - 1; \
         var z = v * 2 - 1; " ;
         
-        var postFix =
-        "var scale = 1; \
-        return new THREE.Vector3(x*scale, z*scale, y*scale); \
-        ";
+        var postFix = "";
     }
     if (_params.system == "spherical") {
         prefix = dependentVariable != 'phi' ?
@@ -120,8 +117,6 @@ function doPlot() {
         "z = radius * Math.cos(theta); \
         x = radius*Math.sin(theta)*Math.cos(phi); \
         y = radius*Math.sin(theta)*Math.sin(phi); \
-        var scale = 1; \
-        return new THREE.Vector3(x*scale, z*scale, y*scale); \
         ";
     }
     if (_params.system == "cylindrical") {
@@ -135,8 +130,6 @@ function doPlot() {
         var postFix =
         "var x = radius*Math.cos(phi); \
         var y = radius*Math.sin(phi); \
-        var scale = 1; \
-        return new THREE.Vector3(x*scale, z*scale, y*scale); \
         ";
     }
     
@@ -150,7 +143,8 @@ function doPlot() {
             alert('There is a syntax error with your formula. Try again please');
             return;
         }
-    }   
+    }
+    newCode += "var scale = 1; return new THREE.Vector3(x*scale, z*scale, y*scale);  "; // put this after the eval() or non-Chrome browsers will complain.
 	var myFunc = new Function("u,v",newCode);
     doShape(0,0,0,myFunc);
     updateMeshAppearance();
