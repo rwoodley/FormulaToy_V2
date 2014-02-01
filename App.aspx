@@ -22,8 +22,9 @@
         m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
     })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-    ga('create', 'UA-41066114-1', 'rwoodley.org');
+    ga('create', 'UA-41066114-2', 'formulatoy.net');
     ga('send', 'pageview');
+
 </script>
         <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
         <script src="lib/three.js"></script>
