@@ -2,7 +2,7 @@
 // but it is in the Main.js namespace.
 // maintains the global _params
 window.addEventListener('keydown', function (event) {
-    console.log(event.keyCode);
+    //console.log(event.keyCode);
     if (event.keyCode == 13) { // enter key pressed
         _params.draw();
     }
@@ -46,18 +46,24 @@ function updateCoordinateSystem() {
     var updateFormula = !_drawClicked && getParameterByName('formula') == '';
     var textArea = document.getElementById('myTextArea');
     if (_params.system == 'cartesian') {
+        alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of X, Y, and Z.\nClick on the help button for more details.");
         //alert('Z is a function of X & Y which both go from -1 to 1');
         if (updateFormula) _params.formula = 'z = x*x - y*y';
     }
     if (_params.system == 'spherical') {
+        alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
         //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'radius = 1.0';
     }
     if (_params.system == 'cylindrical') {
+        alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of radius, phi, and Z.\nClick on the help button for more details.");
         //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
     }
-    clearPlot();
+    if (updateFormula)
+        draw();
+    else 
+        clearPlot();
 }
 var _sphereColorS;
 function setupDatGui() {
@@ -70,9 +76,6 @@ function setupDatGui() {
     var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'cylindrical' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
-    formula.onChange(function (value) {
-        console.log(value);
-    });
 	gui1.add( _params, 'draw' ).name("Click to draw formula.");
 	gui1.add(_params, 'help').name("Click for help, tips.");
 	gui1.add(_params, 'share').name("Share this formula and graph.");

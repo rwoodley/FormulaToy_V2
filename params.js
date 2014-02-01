@@ -55,7 +55,7 @@ function params() {
     this.Y = 0;
     this.Z = 0;
     this.PNGUKey = -1;
-    this.system = "spherical";
+    this.system = "cartesian";
     this.color = "#ff0000"; // color (change "#" to "0x")
     this.colorS = "#ffff00"; // color (change "#" to "0x")
     this.shininess = 30;

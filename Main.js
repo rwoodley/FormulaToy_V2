@@ -140,18 +140,17 @@ function doPlot() {
         ";
     }
     
+    console.log(jsFormula);
+    var preprefix = "var pi = Math.PI; var e = Math.E;";
+    var newCode = preprefix + prefix + jsFormula + postFix;
     try {
-        eval(jsFormula); 
+        eval(newCode); 
     } catch (e) {
         if (e instanceof SyntaxError) {
             alert('There is a syntax error with your formula. Try again please');
             return;
         }
     }   
-    var preprefix = "var pi = Math.PI; var e = Math.E;";
-
-	console.log(jsFormula);
-	var newCode = preprefix + prefix + jsFormula + postFix;
 	var myFunc = new Function("u,v",newCode);
     doShape(0,0,0,myFunc);
     updateMeshAppearance();
