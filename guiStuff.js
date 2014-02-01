@@ -51,12 +51,12 @@ function updateCoordinateSystem() {
         if (updateFormula) _params.formula = 'z = x*x - y*y';
     }
     if (_params.system == 'spherical') {
-        alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
+        alert("The system is set to use spherical coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
         //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'radius = 1.0';
     }
     if (_params.system == 'cylindrical') {
-        alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of radius, phi, and Z.\nClick on the help button for more details.");
+        alert("The system is set to use cylindrical coordinates.\nThat means it is expecting a formula in terms of radius, phi, and Z.\nClick on the help button for more details.");
         //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
     }
