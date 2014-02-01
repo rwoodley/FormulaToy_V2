@@ -1,13 +1,13 @@
 function getPossibleValuesForSystem(system) {
     var possibleValues;
     if (_params.system == "cartesian") {
-        possibleValues = "x,y,z";
+        possibleValues = "x,y,z,p";
     }
     if (_params.system == "spherical") {
-        possibleValues = "radius,phi,theta";
+        possibleValues = "radius,phi,theta,p";
     }
     if (_params.system == "cylindrical") {
-        possibleValues = "z,radius,phi";
+        possibleValues = "z,radius,phi,p";
     }
     return possibleValues;
 }

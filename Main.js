@@ -141,7 +141,7 @@ function doPlot() {
     }
     
     console.log(jsFormula);
-    var preprefix = "var pi = Math.PI; var e = Math.E;";
+    var preprefix = "var pi = Math.PI; var e = Math.E; var p = " + _params.P + ";";
     var newCode = preprefix + prefix + jsFormula + postFix;
     try {
         eval(newCode); 

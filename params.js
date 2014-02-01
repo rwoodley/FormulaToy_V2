@@ -54,6 +54,7 @@ function params() {
     this.X = 0;
     this.Y = 0;
     this.Z = 0;
+    this.P = 0.5;
     this.PNGUKey = -1;
     this.system = "cartesian";
     this.color = "#ff0000"; // color (change "#" to "0x")

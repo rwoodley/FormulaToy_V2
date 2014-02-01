@@ -76,7 +76,10 @@ function setupDatGui() {
     var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'cylindrical' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
-	gui1.add( _params, 'draw' ).name("Click to draw formula.");
+    var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");
+    p.onChange(function (value) { draw(); });
+
+    gui1.add(_params, 'draw').name("Click to draw formula.");
 	gui1.add(_params, 'help').name("Click for help, tips.");
 	gui1.add(_params, 'share').name("Share this formula and graph.");
 
@@ -86,12 +89,6 @@ function setupDatGui() {
 	var sphereColor = folderAppearance.addColor( _params, 'color' ).name('Color (Diffuse)').listen();
 	sphereColor.onChange(function(value) // onFinishChange
 	{   _lastMesh.material.color.setHex( value.replace("#", "0x") );   });
-	//var sphereColorA = folderAppearance.addColor( _params, 'colorA' ).name('Color (Ambient)').listen();
-	//sphereColorA.onChange(function(value) // onFinishChange
-	//{   _lastMesh.material.ambient.setHex( value.replace("#", "0x") );   });
-	//var sphereColorE = folderAppearance.addColor( _params, 'colorE' ).name('Color (Emissive)').listen();
-	//sphereColorE.onChange(function(value) // onFinishChange
-	//{   _lastMesh.material.emissive.setHex( value.replace("#", "0x") );   });
 	
     _sphereColorS = folderAppearance.addColor( _params, 'colorS' ).name('Color (Specular)').listen();
 	_sphereColorS.onChange(function(value) // onFinishChange
