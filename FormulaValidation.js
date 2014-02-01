@@ -26,11 +26,15 @@ function convertToJavascript(system, userFormula) {
         alert('No semi-colons in the formula please.');
         return null;
     }
+    if (formula.indexOf('^') > -1) {
+        alert("The '^' character is not allowed. If you're trying to do exponentiation, use the pow function.\nFor instance pow(x,3) to cube x.");
+        return null;
+    }
     if (formula.split('(').length != formula.split(')').length) {
         alert('Parentheses are not balanced.');
         return null;
     }
-    var tokens = formula.split(/[=+\-\*\\/^\(\)]/);
+    var tokens = formula.split(/[=+\-\,\*\\/^\(\)]/);
     var formula = parseTokens(tokens, formula, possibleValues);
     if (formula == null) return null;
     var dependentVariable = formula.split("=");

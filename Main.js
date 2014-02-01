@@ -12,12 +12,15 @@ function userClickedDraw() {
     _drawClicked = true;
     draw();
 }
-function draw() {
-	if (_lastMesh != undefined) {
-		_scene.remove(_lastMesh);
-//		_lastMesh.deallocate();
+function clearPlot() {
+    if (_lastMesh != undefined) {
+        _scene.remove(_lastMesh);
+        //		_lastMesh.deallocate();
         _lastMesh = undefined;
-	}
+    }
+}
+function draw() {
+    clearPlot();
 	doPlot();
 }
 function init() {
@@ -70,7 +73,8 @@ function init() {
 	spotLight.distance=400;
 	_scene.add( spotLight );
 	
-	drawCoords();
+	drawLine(0,1000,0,'blue');
+	//drawCoords();
     setupDatGui();  // this will draw a shape.
 	animate();
 
@@ -152,7 +156,7 @@ function doPlot() {
     doShape(0,0,0,myFunc);
     updateMeshAppearance();
 }
-function doShape(x,y,z,daFunc) {
+function doShape(x, y, z, daFunc) {
     var Geo3 = new THREE.ParametricGeometry(daFunc, 90, 90, false);
     mesh = new THREE.Mesh( Geo3, _mat );
     mesh.position.x = x; mesh.position.y = y; mesh.position.z = z;

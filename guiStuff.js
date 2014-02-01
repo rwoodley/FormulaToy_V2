@@ -1,6 +1,12 @@
 // Just putting this in a separate file so it doesn't clutter Main.js
 // but it is in the Main.js namespace.
 // maintains the global _params
+window.addEventListener('keydown', function (event) {
+    console.log(event.keyCode);
+    if (event.keyCode == 13) { // enter key pressed
+        _params.draw();
+    }
+});
 function updateMeshAppearance()
 {
     var value = _params.material;
@@ -51,7 +57,7 @@ function updateCoordinateSystem() {
         //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
     }
-    draw();
+    clearPlot();
 }
 var _sphereColorS;
 function setupDatGui() {
@@ -64,6 +70,9 @@ function setupDatGui() {
     var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'cylindrical' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
+    formula.onChange(function (value) {
+        console.log(value);
+    });
 	gui1.add( _params, 'draw' ).name("Click to draw formula.");
 	gui1.add(_params, 'help').name("Click for help, tips.");
 	gui1.add(_params, 'share').name("Share this formula and graph.");
@@ -107,5 +116,6 @@ function setupDatGui() {
 
 	
 	gui.open();
-    updateCoordinateSystem();
+	updateCoordinateSystem();
+	draw();
 }
