@@ -119,6 +119,23 @@ function doPlot() {
         y = radius*Math.sin(theta)*Math.sin(phi); \
         ";
     }
+    if (_params.system == "toroidal") {
+        prefix = dependentVariable != 'phi' ?
+        "var phi = u * 2 * Math.PI; \
+         var theta = v * 2 * Math.PI; \
+         var radius = v;" :
+        "var phi = v * 2 * Math.PI; \
+         var theta = u * 2 * Math.PI; \
+         var radius = v;" ;
+
+        var postFix =
+            " \
+        z =  radius*Math.sin(theta); \
+        var R = 1.0 + radius * Math.cos(theta); \
+        x = R * Math.cos(phi); \
+        y = R * Math.sin(phi); \
+        ";
+    }
     if (_params.system == "cylindrical") {
         prefix = dependentVariable != 'phi' ?
         "var phi = u * 2 * Math.PI; \
@@ -169,4 +186,15 @@ function render() {
 	_controls.update();
     _stats.update();
 }
-
+function SinH(Angle) {                      // Angle in radians
+    var e = Math.E;
+    var p = Math.pow(e, Angle);
+    var n = 1 / p;
+    return (p - n) / 2;
+} // SinH
+function CosH(Angle) {                      // Angle in radians
+    var e = Math.E;
+    var p = Math.pow(e, Angle);
+    var n = 1 / p;
+    return (p * 1 + n * 1) / 2;
+} // CosH

@@ -60,6 +60,12 @@ function updateCoordinateSystem() {
         //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'radius = 1.0';
     }
+    if (_params.system == 'toroidal') {
+        if (showAlert)
+            alert("The system is set to use toroidal coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
+        //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
+        if (updateFormula) _params.formula = 'radius = 1.0';
+    }
     if (_params.system == 'cylindrical') {
         if (showAlert)
             alert("The system is set to use cylindrical coordinates.\nThat means it is expecting a formula in terms of radius, phi, and Z.\nClick on the help button for more details.");
@@ -79,7 +85,7 @@ function setupDatGui() {
     gui1.domElement.style.top = "20px";
     gui1.domElement.style.left = "20px";
     document.body.appendChild(gui1.domElement );
-    var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'cylindrical' ] ).listen();
+    var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'toroidal', 'cylindrical' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");

@@ -6,6 +6,9 @@ function getPossibleValuesForSystem(system) {
     if (_params.system == "spherical") {
         possibleValues = "radius,phi,theta,p";
     }
+    if (_params.system == "toroidal") {
+        possibleValues = "radius, phi, theta";
+    }
     if (_params.system == "cylindrical") {
         possibleValues = "z,radius,phi,p";
     }
@@ -22,10 +25,10 @@ function convertToJavascript(system, userFormula) {
         alert('No brackets in the formula please.');
         return null;
     }
-    if (formula.indexOf(';') > -1) {
-        alert('No semi-colons in the formula please.');
-        return null;
-    }
+    //if (formula.indexOf(';') > -1) {
+    //    alert('No semi-colons in the formula please.');
+    //    return null;
+    //}
     if (formula.indexOf('^') > -1) {
         alert("The '^' character is not allowed. If you're trying to do exponentiation, use the pow function.\nFor instance pow(x,3) to cube x.");
         return null;
