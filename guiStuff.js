@@ -72,6 +72,15 @@ function updateCoordinateSystem() {
         //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
         if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
     }
+    if (_params.system == 'parametric') {
+        if (showAlert)
+            alert("The system is using cartesian coordinates but expecting a parametric equation.\nThat means it is expecting a formula in terms of x,y,z,u and v.\nClick on the help button for more details.");
+        //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
+        if (updateFormula) _params.formula = 'u=u*(2 * pi); v=v*(6*pi); \
+        x=(2+cos(v))*cos(u); \
+        y=(2+cos(v))*sin(u); \
+        z=sin(v);';
+    }
     if (updateFormula)
         draw();
     else 
@@ -85,7 +94,7 @@ function setupDatGui() {
     gui1.domElement.style.top = "20px";
     gui1.domElement.style.left = "20px";
     document.body.appendChild(gui1.domElement );
-    var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'toroidal', 'cylindrical' ] ).listen();
+    var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'toroidal', 'cylindrical','parametric' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");

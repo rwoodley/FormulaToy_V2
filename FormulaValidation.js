@@ -9,6 +9,9 @@ function getPossibleValuesForSystem(system) {
     if (_params.system == "toroidal") {
         possibleValues = "radius, phi, theta";
     }
+    if (_params.system == "parametric") {
+        possibleValues = "x,y,z,u,v";
+    }
     if (_params.system == "cylindrical") {
         possibleValues = "z,radius,phi,p";
     }

@@ -87,8 +87,14 @@ function doPlot() {
     _mat = new THREE.MeshPhongMaterial(
     { ambient: 0x555555, color: color, specular: 0x0000cc, shininess: 20,shading: THREE.SmoothShading  }  );
 
-    var jsFormula = convertToJavascript(_params.system,_params.formula);
-    if (jsFormula == null) return;
+    var statements = _params.formula.split(';');
+    var jsFormula = "";
+    for (var i = 0; i < statements.length; i++) {
+        if (statements[i].length == 0) continue;
+        var formulaPiece = convertToJavascript(_params.system, statements[i]);
+        if (jsFormula != null)
+            jsFormula = jsFormula + formulaPiece + ";";
+    }
     _params.setFormula(getCleanFormula(_params.system,_params.formula));
     var dependentVariable = getDependentVariable(_params.formula);
 
@@ -149,7 +155,11 @@ function doPlot() {
         var y = radius*Math.sin(phi); \
         ";
     }
-    
+    if (_params.system == "parametric") {
+        prefix = '';
+        var postFix = "";
+    }
+
     console.log(jsFormula);
     var preprefix = "var pi = Math.PI; var e = Math.E; var p = " + _params.P + ";";
     var newCode = preprefix + prefix + jsFormula + postFix;
