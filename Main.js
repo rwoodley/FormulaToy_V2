@@ -101,7 +101,7 @@ function doPlot() {
 	var prefix, postfix;
     if (_params.system == "cartesian") {
         prefix = dependentVariable == 'x' ?
-        "var x = v * 2 - 1; \
+        "var xx, yy, zz, rr, phi, pp, qq; var x = v * 2 - 1; \
         var y = u * 2 - 1; \
         var z = v * 2 - 1; " :
         "var x = u * 2 - 1; \
