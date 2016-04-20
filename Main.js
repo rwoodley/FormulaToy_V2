@@ -177,7 +177,7 @@ function doPlot() {
     updateMeshAppearance();
 }
 function doShape(x, y, z, daFunc) {
-    var Geo3 = new THREE.ParametricGeometry(daFunc, 90, 90, false);
+    var Geo3 = new THREE.ParametricGeometry(daFunc, 180, 180, false);
     mesh = new THREE.Mesh( Geo3, _mat );
     mesh.position.x = x; mesh.position.y = y; mesh.position.z = z;
     this._scene.add(mesh);
