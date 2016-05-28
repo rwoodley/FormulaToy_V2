@@ -95,7 +95,7 @@ function smallInputBox() {
     // i arrived at these particular settings thru much trial and error
     _formulaDomElement.children[0].style = "height: 50px; width: 100%;"
     _formulaDomElement.parentElement.parentElement.style = "height: 50px;"
-    _formulaDomElement.children[0].rows = 2;   // setting rows on a 'text area'.
+    _formulaDomElement.children[0].rows = 1;   // setting rows on a 'text area'.
 }
 function largeInputBox() {
     // i arrived at these particular settings thru much trial and error
