@@ -17,13 +17,19 @@ function getPossibleValuesForSystem(system) {
     }
     return possibleValues;
 }
-function getCleanFormula(system, userFormula) {
-    var formula = userFormula.toLowerCase().replace(' ', '').replace(/math/g, 'Math');
+function getCleanFormula(userFormula) {
+    var formula = userFormula.toLowerCase()
+            .replace(' ', '')
+            .replace(/math/g, 'Math')
+            .replace(/;;/g, ';')
+            .replace(/;/g, ';\n')
+    ;
+    console.log(formula);
     return formula;
 }
 function convertToJavascript(system, userFormula) {
     var possibleValues = getPossibleValuesForSystem(system);
-    var formula = userFormula.toLowerCase().replace(/ /g, '').replace(/math/g, 'Math');
+    var formula = userFormula.toLowerCase().replace(/ /g, '').replace(/math/g, 'Math').replace(/\n/g,'');
     if (formula.indexOf('[') > -1 || formula.indexOf(']') > -1) {
         alert('No brackets in the formula please.');
         return null;

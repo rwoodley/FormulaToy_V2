@@ -72,6 +72,7 @@
     <Content Include="images\TwitterFlatLarge.png" />
     <Content Include="lib\analytics.js" />
     <Content Include="lib\dat.gui.min.js" />
+    <Content Include="lib\dat.gui.js" />
     <Content Include="lib\OrbitControls.js" />
     <Content Include="lib\stats.js" />
     <Content Include="lib\three.js" />

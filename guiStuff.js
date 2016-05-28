@@ -49,44 +49,63 @@ function updateCoordinateSystem() {
     _firstTime = false;
     var textArea = document.getElementById('myTextArea');
     if (_params.system == 'cartesian') {
+        smallInputBox();
+        if (updateFormula) _params.formula = 'z = x*x - y*y';
         if (showAlert)
             alert("The system is set to use cartesian coordinates.\nThat means it is expecting a formula in terms of X, Y, and Z.\nClick on the help button for more details.");
         //alert('Z is a function of X & Y which both go from -1 to 1');
-        if (updateFormula) _params.formula = 'z = x*x - y*y';
     }
     if (_params.system == 'spherical') {
+        smallInputBox();
+        if (updateFormula) _params.formula = 'radius = 1.0';
         if (showAlert)
             alert("The system is set to use spherical coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
         //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
-        if (updateFormula) _params.formula = 'radius = 1.0';
     }
     if (_params.system == 'toroidal') {
+        smallInputBox();
+        if (updateFormula) _params.formula = 'radius = 1.0';
         if (showAlert)
             alert("The system is set to use toroidal coordinates.\nThat means it is expecting a formula in terms of radius, phi, and theta.\nClick on the help button for more details.");
         //alert('radius is a function of theta (0 to PI) and phi (0 to 2xPI)');
-        if (updateFormula) _params.formula = 'radius = 1.0';
     }
     if (_params.system == 'cylindrical') {
+        smallInputBox();
+        if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
         if (showAlert)
             alert("The system is set to use cylindrical coordinates.\nThat means it is expecting a formula in terms of radius, phi, and Z.\nClick on the help button for more details.");
         //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
-        if (updateFormula) _params.formula = 'z = radius*(cos(4*phi) + sin(4*phi))';
     }
     if (_params.system == 'parametric') {
+        //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
+        if (updateFormula) _params.formula = 'u=u*(2 * pi); \n v=v*(6*pi); \n \
+        x=(2+cos(v))*cos(u); \n \
+        y=(2+cos(v))*sin(u); \n \
+        z=sin(v);';
+        largeInputBox();
         if (showAlert)
             alert("The system is using cartesian coordinates but expecting a parametric equation.\nThat means it is expecting a formula in terms of x,y,z,u and v.\nClick on the help button for more details.");
-        //alert('Z is a function of radius (0 to 1) and phi (0 to 2xPI)');
-        if (updateFormula) _params.formula = 'u=u*(2 * pi); v=v*(6*pi); \
-        x=(2+cos(v))*cos(u); \
-        y=(2+cos(v))*sin(u); \
-        z=sin(v);';
     }
     if (updateFormula)
         draw();
     else 
         clearPlot();
 }
+function smallInputBox() {
+    // i arrived at these particular settings thru much trial and error
+    _formulaDomElement.children[0].style = "height: 50px;"
+    _formulaDomElement.parentElement.parentElement.style = "height: 50px;"
+    _formulaDomElement.children[0].rows = 1;   // setting rows on a 'text area'.
+}
+function largeInputBox() {
+    // i arrived at these particular settings thru much trial and error
+    _formulaDomElement.children[0].rows = 10;   // setting rows on a 'text area'.
+
+    _formulaDomElement.children[0].style = "height: 400px;"
+    _formulaDomElement.parentElement.parentElement.style = "height: 400px;"
+}
 var _sphereColorS;
+var _formulaDomElement;
 function setupDatGui() {
 
 	var gui1 = new dat.GUI({autoPlace: false, width: 400});
@@ -97,6 +116,7 @@ function setupDatGui() {
     var coordSystem = gui1.add(_params, 'system', [ 'cartesian', 'spherical', 'toroidal', 'cylindrical','parametric' ] ).listen();
     coordSystem.onChange(function(value) { updateCoordinateSystem(); } );
     var formula = gui1.add(_params, 'formula').listen();
+    _formulaDomElement = formula.domElement;
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");
     p.onChange(function (value) { draw(); });
 

@@ -88,7 +88,7 @@ function params() {
 
         var formulaParam = getParameterByName('formula');
         if (formulaParam != '') {
-            var cleanFormula = getCleanFormula(_params.system, formulaParam);
+            var cleanFormula = getCleanFormula(formulaParam);
             if (cleanFormula != null) _params.setFormula(cleanFormula);
         }
         var tmpParam;

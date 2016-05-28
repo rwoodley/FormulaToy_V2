@@ -31,7 +31,7 @@
         <script src="lib/OrbitControls.js"></script>
         <script src="lib/stats.js"></script>
         <script src="Detector.js"></script>
-		<script type="text/javascript" src="lib/dat.gui.min.js"></script>
+		<script type="text/javascript" src="lib/dat.gui.js"></script>
 		<script src="utilities.js"></script>
 		<script src="guiStuff.js"></script>
 		<script src="FormulaValidation.js"></script>

@@ -87,15 +87,17 @@ function doPlot() {
     _mat = new THREE.MeshPhongMaterial(
     { ambient: 0x555555, color: color, specular: 0x0000cc, shininess: 20,shading: THREE.SmoothShading  }  );
 
-    var statements = _params.formula.split(';');
+    var statements = _params.formula.replace(/\n/,'').split(';');
     var jsFormula = "";
+    var trimmedUserFormula = "";
     for (var i = 0; i < statements.length; i++) {
         if (statements[i].length == 0) continue;
+        trimmedUserFormula += statements[i].trim() + ";";
         var formulaPiece = convertToJavascript(_params.system, statements[i]);
         if (jsFormula != null)
             jsFormula = jsFormula + formulaPiece + ";";
     }
-    _params.setFormula(getCleanFormula(_params.system,_params.formula));
+    _params.setFormula(getCleanFormula(trimmedUserFormula));
     var dependentVariable = getDependentVariable(_params.formula);
 
 	var prefix, postfix;
@@ -182,7 +184,6 @@ function doShape(x, y, z, daFunc) {
     mesh.position.x = x; mesh.position.y = y; mesh.position.z = z;
     this._scene.add(mesh);
 	_lastMesh = mesh;
-    //alert(_params.spinSpeed);   
 }
 function animate() {
 	requestAnimationFrame( animate );
