@@ -159,4 +159,15 @@ function setupDatGui() {
 	gui.open();
 	updateCoordinateSystem();
 	draw();
+	var x = document.getElementsByTagName('textarea')
+	for (var i = 0; i < x.length; i++)
+	    x[i].addEventListener('keydown', function (e) {
+	        if (e.keyCode == 9) {   // tab key
+	            e.preventDefault();
+	        }
+	    }, false)
+	var x = document.getElementsByTagName('input')
+	for (var i = 0; i < x.length; i++)
+	    x[i].tabIndex = -1;
+
 }

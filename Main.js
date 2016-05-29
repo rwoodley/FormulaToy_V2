@@ -24,6 +24,7 @@ function draw() {
 	doPlot();
 }
 function init() {
+
     if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
     _params = new params();
     _params.initFromURL();
@@ -87,16 +88,21 @@ function doPlot() {
     _mat = new THREE.MeshPhongMaterial(
     { ambient: 0x555555, color: color, specular: 0x0000cc, shininess: 20,shading: THREE.SmoothShading  }  );
 
-    var statements = _params.formula.replace(/\n/,'').split(';');
+    var statements = _params.formula.replace(/\n/g,'').split(';');
     var jsFormula = "";
     var trimmedUserFormula = "";
+    var numValidStatements = 0;
     for (var i = 0; i < statements.length; i++) {
         if (statements[i].length == 0) continue;
-        trimmedUserFormula += statements[i].trim() + ";";
         var formulaPiece = convertToJavascript(_params.system, statements[i]);
-        if (jsFormula != null)
+        if (jsFormula != null) {
+            numValidStatements++;
+            trimmedUserFormula += statements[i].trim() + ";";
             jsFormula = jsFormula + formulaPiece + ";";
+        }
     }
+    if (numValidStatements == 1)
+        trimmedUserFormula = trimmedUserFormula.replace(/;/g, '');   
     _params.setFormula(getCleanFormula(trimmedUserFormula));
     var dependentVariable = getDependentVariable(_params.formula);
 
