@@ -74,8 +74,8 @@ function init() {
 	spotLight.distance=400;
 	_scene.add( spotLight );
 	
-	drawLine(0,1000,0,'blue');
-	//drawCoords();
+	//drawLine(0,1000,0,'blue');
+	drawCoords();
     setupDatGui();  // this will draw a shape.
 	animate();
 

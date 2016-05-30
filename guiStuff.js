@@ -144,13 +144,14 @@ function setupDatGui() {
 	var sphereMaterial = folderAppearance.add( _params, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type').listen();
 	sphereMaterial.onChange(function(value) 
 	{   updateMeshAppearance();   });
-	folderAppearance.close();
+    folderAppearance.open();     // this won't work now that we have textarea for input, 
+	                                // given all the shenanigans i did to make that show/hide
     
 	var folder1 = gui.addFolder('Camera Focus');
 	folder1.add(_params, 'X', -10, 10);
 	folder1.add(_params, 'Y', -10, 10);
 	folder1.add(_params, 'Z', -10, 10);
-	folder1.close();
+	folder1.open();              // ditto
 
 	gui.add(_params, 'spin');
 	gui.add(_params, 'spinSpeed',-Math.PI/32,Math.PI/32);

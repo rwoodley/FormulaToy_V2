@@ -47,7 +47,7 @@ function drawLine(x,y,z,color1) { drawLineFrom(0,0,0,x,y,z,color1); }
 function drawCoordsFrom(x,y,z,len) {
 	drawLineFrom(x,y,z,x+len,y,z,'blue');
 	drawLineFrom(x,y,z,x,y+len,z,'red');
-	drawLineFrom(x,y,z,x,y,z+len,'yellow');
+	drawLineFrom(x,y,z,x,y,z+len,'green');
 }
 function drawLineFrom(x1,y1,z1,x2,y2,z2,color1) {
 	var lineGeometry = new THREE.Geometry();
