@@ -167,8 +167,5 @@ function setupDatGui() {
 	            e.preventDefault();
 	        }
 	    }, false)
-	var x = document.getElementsByTagName('input')
-	for (var i = 0; i < x.length; i++)
-	    x[i].tabIndex = -1;
 
 }

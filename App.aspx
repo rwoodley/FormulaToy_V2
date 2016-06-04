@@ -13,7 +13,7 @@
 				overflow: hidden;
 			}
             /* We are using dat.gui for the gui controls. They didn't have support for multi-line text input, e.g. textarea.
-                So I edited dat.gui.min.js to add a textarea for string input. These extra styles are needed to support
+                So I edited dat.gui.js to add a textarea for string input. These extra styles are needed to support
                 OpenControls/CloseControls. */
             .closed li { display: none; }
             .closed div span { display: none; }
