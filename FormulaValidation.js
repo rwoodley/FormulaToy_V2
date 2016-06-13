@@ -72,6 +72,7 @@ function parseTokens(tokens, formula, possibleValues) {
         console.log(token, possibleValues);
         if (
             token == 'cos' ||
+            token == 'cosh' ||
             token == 'abs' ||
             token == 'acos' ||
             token == 'asin' ||
@@ -87,7 +88,9 @@ function parseTokens(tokens, formula, possibleValues) {
             token == 'random' ||
             token == 'round' ||
             token == 'sin' ||
+            token == 'sinh' ||
             token == 'sqrt' ||
+            token == 'tanh' ||
             token == 'tan' 
             ) {
             if (alreadyReplaced.indexOf(token) >= 0) continue;
