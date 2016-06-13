@@ -93,8 +93,8 @@ function parseTokens(tokens, formula, possibleValues) {
             token == 'tanh' ||
             token == 'tan' 
             ) {
-            if (alreadyReplaced.indexOf(token) >= 0) continue;
-            alreadyReplaced += token;
+            if (alreadyReplaced.indexOf(token+"zzz") >= 0) continue;
+            alreadyReplaced += token+"zzz";
             var regex = new RegExp(token, 'g');
             formula = formula.replace(regex, 'Math.' + token);
         }
