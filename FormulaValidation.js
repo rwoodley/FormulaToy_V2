@@ -93,10 +93,12 @@ function parseTokens(tokens, formula, possibleValues) {
             token == 'tanh' ||
             token == 'tan' 
             ) {
-            if (alreadyReplaced.indexOf(token+"zzz") >= 0) continue;
-            alreadyReplaced += token+"zzz";
-            var regex = new RegExp(token, 'g');
-            formula = formula.replace(regex, 'Math.' + token);
+            // the '(' ensures we don't confuse cosh with cos, for instnce.
+            var tokenWithParen = token + "(";
+            if (alreadyReplaced.indexOf(tokenWithParen+"zzz") >= 0) continue;
+            alreadyReplaced += tokenWithParen + "zzz";
+            var regex = new RegExp(token+"\\(", 'g');
+            formula = formula.replace(regex, 'Math.' + tokenWithParen);
         }
         else {
             if (token == 'pi' || token == 'e') continue;
