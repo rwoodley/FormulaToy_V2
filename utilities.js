@@ -38,16 +38,56 @@ function doFloor() {
 	_scene.add(_floor);
 	return _floor;
 }
-function drawCoords() {
-	drawLine(1000,0,0,'blue');
-	drawLine(0,1000,0,'green');
-	drawLine(0,0,1000,'red');
+function drawCoords(xtext, ytext, ztext, xlen, ylen, zlen) {
+    removeAllMeshes();
+    drawLine(xlen, 0, 0, 'purple', xtext);
+	drawLine(0,ylen,0,'green', ytext);
+	drawLine(0, 0, zlen, 'red', ztext);
+
+	//var gridHelper = new THREE.GridHelper(xlen, xlen / 10.0);
+	//_scene.add(gridHelper);
+	//saveMesh(gridHelper);
 }
-function drawLine(x,y,z,color1) { drawLineFrom(0,0,0,x,y,z,color1); }
+function drawCoordsSimple() {
+    removeAllMeshes();
+    drawLine(10000, 0, 0, 'blue', xtext);
+    drawLine(0, 10000, 0, 'green', ytext);
+    drawLine(0, 0, 10000, 'red', ztext);
+
+    //var gridHelper = new THREE.GridHelper(xlen, xlen / 10.0);
+    //_scene.add(gridHelper);
+    //saveMesh(gridHelper);
+}
+function drawLine(x, y, z, color1, text) {
+    drawLineFrom(0, 0, 0, x, y, z, color1);
+    drawAxisLabel(x, y, z, color1, text);
+}
 function drawCoordsFrom(x,y,z,len) {
 	drawLineFrom(x,y,z,x+len,y,z,'blue');
 	drawLineFrom(x,y,z,x,y+len,z,'red');
 	drawLineFrom(x,y,z,x,y,z+len,'green');
+}
+function drawAxisLabel(x,y,z,color1, textstr) {
+    var textGeo = new THREE.TextGeometry(textstr, {
+
+        font: _font,
+
+        size: .2,
+        height: .02,
+        curveSegments: 12,
+
+    });
+    //var color = new THREE.Color(color1);
+//    color.setRGB(255, 250, 250);
+    var textMaterial = new THREE.MeshBasicMaterial({ color: "white" });
+    var text = new THREE.Mesh(textGeo, textMaterial);
+
+    text.position.x = x;
+    text.position.y = y;
+    text.position.z = z;
+    //text.rotation = _camera.rotation;
+    _scene.add(text);
+    saveMesh(text);
 }
 function drawLineFrom(x1,y1,z1,x2,y2,z2,color1) {
 	var lineGeometry = new THREE.Geometry();
@@ -57,13 +97,22 @@ function drawLineFrom(x1,y1,z1,x2,y2,z2,color1) {
 	var lineMaterial = new THREE.LineBasicMaterial( { color:color1 } );
 	var line = new THREE.Line( lineGeometry, lineMaterial );
 	_scene.add(line);
+	saveMesh(line);
 }
 function onWindowResize() {
 	_camera.aspect = window.innerWidth / window.innerHeight;
 	_camera.updateProjectionMatrix();
 	_renderer.setSize( window.innerWidth, window.innerHeight );
 }
-
+var _meshList = [];
+function saveMesh(mesh) {
+    _meshList.push(mesh);
+}
+function removeAllMeshes() {
+    for (var i = 0; i < _meshList.length; i++)
+        _scene.remove(_meshList[i]);
+    _meshList = [];
+}
 function eventHandler(canvas, res, e) {
 	// z = 90, a=65, x=88, s = 83, c= 67, d = 68, v= 86, f =70
     if (res == 'keydown') {

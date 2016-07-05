@@ -33,15 +33,16 @@
 
 </script>
         <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
-        <script src="lib/three.js"></script>
+        <script src="lib/three.min.r78.js"></script>
         <script src="lib/OrbitControls.js"></script>
         <script src="lib/stats.js"></script>
+        <script src="lib/math.min.3.2.1.js"></script>
         <script src="Detector.js"></script>
 		<script type="text/javascript" src="lib/dat.gui.js"></script>
 		<script src="utilities.js"></script>
-		<script src="guiStuff.js"></script>
-		<script src="FormulaValidation.js"></script>
-		<script src="params.js"></script>
+		<script src="Real/guiStuff.js"></script>
+		<script src="Real/FormulaValidation.js"></script>
+		<script src="Real/params.js"></script>
         <script>
             function doneSharing() { document.getElementById('ShareDiv').style.display = 'none'; document.getElementById('modalBackground').style.display = 'none'; }
         </script>
@@ -70,9 +71,9 @@
         <div style="position: fixed; bottom: 0; width:95%; ">
             <div style="float: right; ">
                  <span style="display:block;height:30px;color:white;"><nobr>Use mouse to rotate/pan/zoom.</nobr></span>
-                 <span style="display:block;height:30px;color:white;"><nobr><a href="http://rwoodley.org/" style="color:#0000ff;" target="_blank">Robert Woodley</a> 2014</nobr></span>
+                 <span style="display:block;height:30px;color:white;">Copyright (c) <nobr><a href="http://rwoodley.org/" style="color:#0000ff;" target="_blank">Robert Woodley</a> 2014-2016</nobr></span>
             </div>
         </div>
-		<script src="Main.js"></script>
+		<script src="Real/Main.js"></script>
 	</body>
 </html>

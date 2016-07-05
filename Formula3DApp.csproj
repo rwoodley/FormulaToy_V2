@@ -58,10 +58,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.aspx" />
+    <Content Include="ComplexApp.aspx" />
+    <Content Include="Complex\FormulaValidation.js" />
+    <Content Include="Complex\guiStuff.js" />
+    <Content Include="Complex\Main.js" />
+    <Content Include="Complex\params.js" />
     <Content Include="Detector.js" />
     <Content Include="favicon.ico" />
-    <Content Include="FormulaValidation.js" />
-    <Content Include="guiStuff.js" />
+    <Content Include="lib\math.min.3.2.1.js" />
+    <Content Include="lib\three.min.r78.js" />
+    <Content Include="Real\FormulaValidation.js" />
+    <Content Include="Real\guiStuff.js" />
     <Content Include="Help.html" />
     <Content Include="images\FacebookFlatLarge.png" />
     <Content Include="images\Icon.png" />
@@ -75,9 +82,8 @@
     <Content Include="lib\dat.gui.js" />
     <Content Include="lib\OrbitControls.js" />
     <Content Include="lib\stats.js" />
-    <Content Include="lib\three.js" />
-    <Content Include="Main.js" />
-    <Content Include="params.js" />
+    <Content Include="Real\Main.js" />
+    <Content Include="Real\params.js" />
     <Content Include="ToDo.txt" />
     <Content Include="utilities.js" />
     <Content Include="Web.config" />
@@ -90,9 +96,17 @@
     <Compile Include="App.aspx.designer.cs">
       <DependentUpon>App.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ComplexApp.aspx.cs">
+      <DependentUpon>ComplexApp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComplexApp.aspx.designer.cs">
+      <DependentUpon>ComplexApp.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\helvetiker_regular.typeface.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -100,6 +114,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
