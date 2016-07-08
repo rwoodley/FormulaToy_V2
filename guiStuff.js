@@ -141,7 +141,7 @@ function setupDatGui() {
 	sphereOpacity.onChange(function(value)
 	{   _lastMesh.material.opacity = value;   });
 	
-	var sphereMaterial = folderAppearance.add( _params, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type').listen();
+	var sphereMaterial = folderAppearance.add( _params, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type');
 	sphereMaterial.onChange(function(value) 
 	{   updateMeshAppearance();   });
     folderAppearance.open();     // this won't work now that we have textarea for input, 
