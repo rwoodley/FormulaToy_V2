@@ -115,7 +115,7 @@ function setupDatGui() {
     document.body.appendChild(gui1.domElement );
     var formula = gui1.add(_params, 'formula').listen();
     _formulaDomElement = formula.domElement;
-    var coordSystem = gui1.add(_params, 'system', ['cartesian', 'spherical', 'toroidal', 'cylindrical', 'parametric']).listen();
+    var coordSystem = gui1.add(_params, 'system', ['cartesian', 'spherical', 'toroidal', 'cylindrical', 'parametric']);
     coordSystem.onChange(function (value) { updateCoordinateSystem(); });
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");
     p.onChange(function (value) { draw(); });
