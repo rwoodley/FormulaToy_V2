@@ -115,7 +115,7 @@ function setupDatGui() {
     document.body.appendChild(gui1.domElement );
     var formula = gui1.add(_params, 'formula').listen();
     _formulaDomElement = formula.domElement;
-    var coordSystem = gui1.add(_params, 'system', ['cartesian', 'spherical', 'toroidal', 'cylindrical', 'parametric']).listen();
+    var coordSystem = gui1.add(_params, 'system', ['cartesian', 'spherical', 'toroidal', 'cylindrical', 'parametric']);
     coordSystem.onChange(function (value) { updateCoordinateSystem(); });
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");
     p.onChange(function (value) { draw(); });
@@ -141,7 +141,7 @@ function setupDatGui() {
 	sphereOpacity.onChange(function(value)
 	{   _lastMesh.material.opacity = value;   });
 	
-	var sphereMaterial = folderAppearance.add( _params, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type').listen();
+	var sphereMaterial = folderAppearance.add( _params, 'material', [ "Basic", "Lambert", "Phong", "Wireframe" ] ).name('Material Type');
 	sphereMaterial.onChange(function(value) 
 	{   updateMeshAppearance();   });
     folderAppearance.open();     // this won't work now that we have textarea for input, 
