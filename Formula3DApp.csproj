@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="App.aspx" />
     <Content Include="ComplexApp.aspx" />
+    <Content Include="ComplexHelp.html" />
     <Content Include="Complex\FormulaValidation.js" />
     <Content Include="Complex\guiStuff.js" />
     <Content Include="Complex\Main.js" />

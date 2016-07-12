@@ -68,8 +68,8 @@ function params() {
     this.opacity = 1;
     this.material = "Phong";
     this.draw = function () { userClickedDraw() };
-    this.help = function () {
-        var win = window.open('Help.html', '_blank');
+    this.helpComplex = function () {
+        var win = window.open('ComplexHelp.html', '_blank');
         win.focus();
     };
     this.navigateToReal = function () {
