@@ -72,6 +72,9 @@ function params() {
         var win = window.open('Help.html', '_blank');
         win.focus();
     };
+    this.navigateToReal = function () {
+        window.location.href = 'App.aspx';
+    };
     this.share = function () { shareFormula() };
     this.toURL = function (pngUKey) {
         var sb = '';

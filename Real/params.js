@@ -67,6 +67,9 @@ function params() {
         var win = window.open('Help.html', '_blank');
         win.focus();
     };
+    this.navigateToComplex = function() {
+        window.location.href = 'ComplexApp.aspx';
+    };
     this.share = function () { shareFormula() };
     this.toURL = function (pngUKey) {
         var sb = '';
