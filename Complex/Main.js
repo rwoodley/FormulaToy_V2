@@ -102,7 +102,7 @@ function doPlot() {
     var numValidStatements = 0;
     for (var i = 0; i < statements.length; i++) {
         if (statements[i].length == 0) continue;
-        var formulaPiece = convertToJavascript('cartesian', statements[i]);
+        var formulaPiece = convertToJavascript('cartesian', statements[i], "math.");
         if (jsFormula != null) {
             numValidStatements++;
             trimmedUserFormula += statements[i].trim() + ";";

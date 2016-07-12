@@ -134,3 +134,51 @@ function eventHandler(canvas, res, e) {
 	}
 }
 	
+function uploadGif(pngurl) {
+    var xhr1 = new XMLHttpRequest();
+    var pngukey = Math.floor(Math.random() * 10000) + 1;
+    var filename = "FormulaToy" + pngukey;
+    xhr1.open("POST", "http://3linematrix.com/Upload.aspx?username=FormulaToy&filename=" + filename + "&png=true");
+    xhr1.setRequestHeader('Content-Type', 'image/png');
+    xhr1.onreadystatechange = function () {
+        console.log("Uploading PNG, got status = " + xhr1.status);
+        //document.getElementById('loadingGif').style.display = 'none'
+        //if (xhr1.readyState == 4 && xhr1.status == 200) {
+        //    alert("Your PNG was uploaded successfully.");
+        //}
+    }
+    var data = pngurl.replace("data:image/png;base64,", "");
+    xhr1.send(data);
+    console.log("Sent PNG to S3, filename = " + filename);
+    return pngukey;
+}
+
+function shareFormula() {
+    var pngUrl = _renderer.domElement.toDataURL();
+    var image = document.getElementById('SnapPng');
+    image.src = pngUrl;
+    var pngukey = uploadGif(pngUrl);
+
+    var tempName = parseInt((new Date()).getTime() / 1000);
+    var root = location.protocol + '//' + location.host + location.pathname;
+    var url = root + _params.toURL(pngukey) + "&" + tempName;
+    var cleanFormula = "Surface graph for " + encodeURIComponent("'" + _params.formula + "'\n");
+    var pinterestDescription = encodeURIComponent("Surface graph for '" + _params.formula + "'\n");
+    document.getElementById('MatrixURL').value = url;
+    document.getElementById("shareEmail").href = "mailto:?subject=" + cleanFormula + "&body=" + encodeURIComponent(url); // double-encoding seems to be required here.
+    document.getElementById("shareTW").href = 'http://twitter.com/share?text=' + cleanFormula + '&url=' + encodeURIComponent(url);
+    document.getElementById("shareFB").href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(url);
+    document.getElementById("sharePI").href = "https://www.pinterest.com/pin/create/button/?url=" + encodeURIComponent(url)
+        + "&media=" + encodeURIComponent("http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + pngukey + ".png")
+        + "&description=" + pinterestDescription
+    ;
+    document.getElementById('modalBackground').style.display = 'block';
+    var el = document.getElementById('ShareDiv');
+
+    el.style.display = 'block';
+    el.style.position = 'absolute';
+    var top = 20;
+    var left = 20;
+    el.style.top = top + "px";
+    el.style.left = left + "px";
+}

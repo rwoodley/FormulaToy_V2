@@ -37,10 +37,11 @@
         <script src="lib/OrbitControls.js"></script>
         <script src="lib/stats.js"></script>
         <script src="lib/math.min.3.2.1.js"></script>
-        <script src="Detector.js"></script>
+        <script src="lib/Detector.js"></script>
 		<script type="text/javascript" src="lib/dat.gui.js"></script>
 		<script src="utilities.js"></script>
 		<script src="Real/guiStuff.js"></script>
+		<script src="FormulaValidationCommon.js"></script>
 		<script src="Real/FormulaValidation.js"></script>
 		<script src="Real/params.js"></script>
         <script>

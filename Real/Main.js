@@ -98,7 +98,7 @@ function doPlot() {
     var numValidStatements = 0;
     for (var i = 0; i < statements.length; i++) {
         if (statements[i].length == 0) continue;
-        var formulaPiece = convertToJavascript(_params.system, statements[i]);
+        var formulaPiece = convertToJavascript(_params.system, statements[i], "Math.");
         if (jsFormula != null) {
             numValidStatements++;
             trimmedUserFormula += statements[i].trim() + ";";

@@ -64,7 +64,8 @@
     <Content Include="Complex\guiStuff.js" />
     <Content Include="Complex\Main.js" />
     <Content Include="Complex\params.js" />
-    <Content Include="Detector.js" />
+    <Content Include="FormulaValidationCommon.js" />
+    <Content Include="lib\Detector.js" />
     <Content Include="favicon.ico" />
     <Content Include="lib\math.min.3.2.1.js" />
     <Content Include="lib\three.min.r78.js" />
