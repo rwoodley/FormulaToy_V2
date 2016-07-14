@@ -122,7 +122,7 @@ function setupDatGui() {
 
     gui1.add(_params, 'draw').name("Click to draw formula.");
 	gui1.add(_params, 'help').name("Click for help, tips.");
-	gui1.add(_params, 'share').name("Share this formula and graph.");
+	gui1.add(_params, 'share').name("Share.");
 	gui1.add(_params, 'navigateToComplex').name("Go to Complex Numbers.");
 
 	var gui = new dat.GUI();

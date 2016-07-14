@@ -63,7 +63,17 @@ function parseTokens(tokens, formula, possibleValues, mathPrefix) {
             token == 'sinh' ||
             token == 'sqrt' ||
             token == 'tanh' ||
-            token == 'tan'
+            token == 'tan' ||
+            token == 'sign' ||
+            token == 'add' ||
+            token == 'sub' ||
+            token == 'multiply' ||
+            token == 'div' ||
+            token == 'arg' ||
+            token == 'inverse' ||
+            token == 'conjugate' ||
+            token == 'neg' 
+
             ) {
             // the '(' ensures we don't confuse cosh with cos, for instnce.
             var tokenWithParen = token + "(";
