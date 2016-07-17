@@ -19,7 +19,11 @@ function params() {
         var win = window.open('Help.html', '_blank');
         win.focus();
     };
-    this.navigateToComplex = function() {
+    this.showExamples = function () {
+        var win = window.open('examples/index.html', '_blank');
+        win.focus();
+    };
+    this.navigateToComplex = function () {
         window.location.href = 'ComplexApp.aspx';
     };
     this.share = function () { shareFormula() };

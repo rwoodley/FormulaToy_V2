@@ -120,8 +120,9 @@ function setupDatGui() {
     var p = gui1.add(_params, 'P').min(-1).max(1).step(0.01).name("p");
     p.onChange(function (value) { draw(); });
 
-    gui1.add(_params, 'draw').name("Click to draw formula.");
-	gui1.add(_params, 'help').name("Click for help, tips.");
+    gui1.add(_params, 'draw').name("Draw.");
+	gui1.add(_params, 'help').name("Help.");
+	gui1.add(_params, 'showExamples').name("Examples.");
 	gui1.add(_params, 'share').name("Share.");
 	gui1.add(_params, 'navigateToComplex').name("Go to Complex Numbers.");
 

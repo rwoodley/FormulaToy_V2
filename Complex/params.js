@@ -24,6 +24,10 @@ function params() {
         var win = window.open('ComplexHelp.html', '_blank');
         win.focus();
     };
+    this.showExamples = function () {
+        var win = window.open('examples/index.html', '_blank');
+        win.focus();
+    };
     this.navigateToReal = function () {
         window.location.href = 'App.aspx';
     };
