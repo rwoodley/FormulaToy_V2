@@ -11,6 +11,18 @@ namespace Formula3DApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            String ukeyString = Request.QueryString["PNGUKey"];
+            int PNGUKey = ukeyString == null ? -1 : int.Parse(ukeyString);
+
+            String formulaString = Request.QueryString["formula"];
+            String systemString = Request.QueryString["system"];
+            String descString = "";
+            if (formulaString != null) descString = Server.UrlDecode(formulaString);
+            if (systemString != null) descString += " (using " + Server.UrlDecode(systemString) + " coordinates.)";
+            Page.MetaDescription = descString;
+
+            if (PNGUKey > -1)
+                SnapPng.ImageUrl = "http://3linematrix.com.s3-website-us-east-1.amazonaws.com/FormulaToy.FormulaToy" + PNGUKey + ".png";
 
         }
     }
