@@ -119,7 +119,7 @@ function doPlot() {
     }
 
 	var prefix, postfix;
-	prefix = "var xx, yy, zz, rr, phi, pp, qq;  \
+	prefix = "var xx, yy, zz, rr, gg, phi, pp, qq;  \
 	var uu = u * (" + _params.UMax + " - " + _params.UMin + ") + " + _params.UMin + "; \
 	var vv = v * (" + _params.VMax + " - " + _params.VMin + ") + " + _params.VMin + "; \
     var f = math.complex(uu,vv); \
@@ -141,8 +141,21 @@ function doPlot() {
     newCode += " xx = " + getMappingStringForUserSetting(_params.XMapping) + ";";
     newCode += " yy = " + getMappingStringForUserSetting(_params.YMapping) + ";";
     newCode += " zz = " + getMappingStringForUserSetting(_params.ZMapping) + ";";
+    newCode += " gg = " + getMappingStringForUserSetting(_params.GradientMapping) + ";";
+    newCode += " if(xx > " + _params.XMax + ") xx = " + _params.XMax + ";";
+    newCode += " if(xx < " + _params.XMin + ") xx = " + _params.XMin + ";";
+
+    newCode += " if(yy > " + _params.YMax + ") yy = " + _params.YMax + ";";
+    newCode += " if(yy < " + _params.YMin + ") yy = " + _params.YMin + ";";
+
+    newCode += " if(zz > " + _params.ZMax + ") zz = " + _params.ZMax + ";";
+    newCode += " if(zz < " + _params.ZMin + ") zz = " + _params.ZMin + ";";
+
+    newCode += " if(gg > " + _params.GradientMax + ") gg = " + _params.GradientMax + ";";
+    newCode += " if(gg < " + _params.GradientMin + ") gg = " + _params.GradientMin + ";";
+
     newCode += " collectMinMax(xx,yy,zz); "
-    newCode += " addGradientValue(" + getMappingStringForUserSetting(_params.GradientMapping) + ");";
+    newCode += " addGradientValue(gg);";
     newCode += "var scale = 1; return new THREE.Vector3(xx*scale, zz*scale, yy*scale);  "; // put this after the eval() or non-Chrome browsers will complain.
 	var myFunc = new Function("u,v",newCode);
 	var geo = doShape(0, 0, 0, myFunc);
