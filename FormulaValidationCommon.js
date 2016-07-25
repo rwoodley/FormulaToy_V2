@@ -66,13 +66,13 @@ function parseTokens(tokens, formula, possibleValues, mathPrefix) {
             token == 'tan' ||
             token == 'sign' ||
             token == 'add' ||
-            token == 'sub' ||
+            token == 'subtract' ||
             token == 'multiply' ||
-            token == 'div' ||
+            token == 'divide' ||
             token == 'arg' ||
             token == 'inverse' ||
             token == 'conjugate' ||
-            token == 'neg' 
+            token == 'complex' 
 
             ) {
             // the '(' ensures we don't confuse cosh with cos, for instnce.
